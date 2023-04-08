@@ -1,12 +1,15 @@
-import Wrapper from "./(components)/Wrapper";
+import Timer from './(clock)/Timer';
+import Stopwatch from './(clock)/Stopwatch';
 
 const Pomodoro = () => {
   return (
     <main>
-      This is Pomodoro page
-      <Wrapper />
+      <div style={{ textAlign: 'center' }}>
+        <Timer />
+        <Stopwatch />
+      </div>
     </main>
-  )
-}
+  );
+};
 
 export default Pomodoro;

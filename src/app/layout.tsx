@@ -1,7 +1,9 @@
+import './globals.css';
+
 export const metadata = {
   title: 'My Pomodoro',
   description: '...',
-}
+};
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -10,7 +12,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         {children}
       </body>
     </html>
-  )
-}
+  );
+};
 
 export default Layout;

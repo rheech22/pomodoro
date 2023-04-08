@@ -17,9 +17,7 @@
     "block-spacing": "error",
     "array-bracket-spacing": ["error", "always"],
     "object-curly-spacing": ["error", "always"],
-    "linebreak-style": "off",
     "react/prop-types": "off",
-    "react/react-in-jsx-scope": "off",
     "eol-last": ["error", "always"],
     "quotes": ["error", "single"],
     "jsx-quotes": ["error", "prefer-double"]
