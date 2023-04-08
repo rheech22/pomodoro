@@ -1,9 +1,9 @@
 const Report = () => {
   return (
-    <main>
-      This is Report page
-    </main>
-  )
-}
+    <>
+      This is Report page....
+    </>
+  );
+};
 
 export default Report;
