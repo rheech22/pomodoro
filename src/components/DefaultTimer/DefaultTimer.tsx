@@ -8,11 +8,10 @@ import { pad } from '@/utils/string';
 
 import MinSelect from '@/components/MinSelect';
 import Timetamp from '@/components/Timetamp';
-import Subtitle from '@/components/Subtitle';
 import Run from '@/components/Run';
 import Done from '@/components/Done';
 
-const Timer = () => {
+const DefaultTimer = () => {
   const initMin = 20;
 
   const [ init, setInit ] = useState(false);
@@ -55,13 +54,14 @@ const Timer = () => {
 
   return (
     <>
-      <Subtitle title="Timer"/>
-      <MinSelect initValue={min} onChange={setMin} />
       <Timetamp timestamp={`${pad(minutes + hours * 60)}:${pad(seconds)}`}/>
-      <Run init={init} isRunning={isRunning} onStart={handleStart} onToggle={handleToggle}/>
-      {init && <Done onClick={handleDone} />}
+      <MinSelect initValue={min} onChange={setMin} />
+      <div>
+        {(!init || isRunning) && <Run init={init} isRunning={isRunning} onStart={handleStart} onToggle={handleToggle}/>}
+        {init && !isRunning && <Done onToggle={handleToggle} onReset={handleDone} />}
+      </div>
     </>
   );
 };
 
-export default Timer;
+export default DefaultTimer;

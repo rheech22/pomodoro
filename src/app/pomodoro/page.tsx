@@ -1,13 +1,9 @@
-import Timer from './(clock)/Timer';
-import Stopwatch from './(clock)/Stopwatch';
+import Timer from '@/components/Timer';
 
 const Pomodoro = () => {
   return (
     <main>
-      <div style={{ textAlign: 'center' }}>
-        <Timer />
-        <Stopwatch />
-      </div>
+      <Timer />
     </main>
   );
 };

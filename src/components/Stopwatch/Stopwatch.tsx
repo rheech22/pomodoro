@@ -6,7 +6,6 @@ import { useStopwatch } from 'react-timer-hook';
 import { pad } from '@/utils/string';
 
 import Timetamp from '@/components/Timetamp';
-import Subtitle from '@/components/Subtitle';
 import Run from '@/components/Run';
 import Done from '@/components/Done';
 
@@ -37,10 +36,12 @@ const Stopwatch = () => {
 
   return (
     <>
-      <Subtitle title="Stopwatch"/>
-      <Timetamp timestamp={`${pad(minutes + hours * 60)}:${pad(seconds)}`}/>
-      <Run init={init} isRunning={isRunning} onStart={handleStart} onToggle={handleToggle}/>
-      {init && <Done onClick={handleDone} />}
+      <Timetamp timestamp={`${pad(minutes + hours * 60)}:${pad(seconds)}`} color="green"/>
+      <div>
+
+        {(!init || isRunning) && <Run init={init} color="green" onStart={handleStart} onToggle={handleToggle}/>}
+        {init && !isRunning && <Done onToggle={handleToggle} onReset={handleDone} />}
+      </div>
     </>
   );
 };
