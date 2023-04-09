@@ -1,14 +1,17 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
 import { useStopwatch } from 'react-timer-hook';
+
+import useStore from '@/store';
 
 import { pad } from '@/utils/string';
 
 import Timetamp from '@/components/Timetamp';
-import Run from '@/components/Run';
+import Pause from '@/components/Pause';
 import Done from '@/components/Done';
 
+
 const Stopwatch = () => {
-  const [ init, setInit ] = useState(false);
+  const [ init, setInit ] = useStore(({ init, setInit }) => [ init, setInit ]);
 
   const {
     seconds,
@@ -24,19 +27,20 @@ const Stopwatch = () => {
     isRunning ? pause() : start();
   };
 
-  const handleStart = () => {
-    start(), setInit(true);
-  };
-
   const handleDone = () => {
     reset(undefined, false), setInit(false);
   };
+
+  useEffect(()=> {
+    init && start();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ init ]);
 
   return (
     <>
       <Timetamp timestamp={`${pad(minutes + hours * 60)}:${pad(seconds)}`} color="green"/>
       <div>
-        {(!init || isRunning) && <Run init={init} color="green" onStart={handleStart} onToggle={handleToggle}/>}
+        {init && isRunning && <Pause onToggle={handleToggle}/>}
         {init && !isRunning && <Done onToggle={handleToggle} onReset={handleDone} />}
       </div>
     </>

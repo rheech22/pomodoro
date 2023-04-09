@@ -6,8 +6,6 @@ import { get } from '@/utils/object';
 const Tasks = () => {
   const tasks = useStore(get('tasks'));
 
-  console.log(tasks);
-
   return (
     <ul>
       {tasks.map(({ id, text })=>{
