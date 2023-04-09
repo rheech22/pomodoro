@@ -1,5 +1,3 @@
-'use client';
-
 import { Select, Option } from '@material-tailwind/react';
 
 const MIN_OPTIONS = [ 10, 20, 30, 40, 50, 60 ];

@@ -1,5 +1,3 @@
-'use client';
-
 import { useState } from 'react';
 import { useStopwatch } from 'react-timer-hook';
 
@@ -38,7 +36,6 @@ const Stopwatch = () => {
     <>
       <Timetamp timestamp={`${pad(minutes + hours * 60)}:${pad(seconds)}`} color="green"/>
       <div>
-
         {(!init || isRunning) && <Run init={init} color="green" onStart={handleStart} onToggle={handleToggle}/>}
         {init && !isRunning && <Done onToggle={handleToggle} onReset={handleDone} />}
       </div>

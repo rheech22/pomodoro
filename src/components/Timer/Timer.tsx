@@ -8,13 +8,13 @@ import TimerRadio from '@/components/TimerMode';
 const Timer = () => {
   const [ isTimer, setIsTimer ] = useState(true);
 
-  const handleClick = () => {
+  const handleChange = () => {
     setIsTimer((prev) => !prev);
   };
 
   return (
     <div className="relative w-full flex flex-col items-center mt-10">
-      <TimerRadio isTimer={isTimer} onClick={handleClick}/>
+      <TimerRadio isTimer={isTimer} onChange={handleChange}/>
       {isTimer ? <DefaultTimer /> : <Stopwatch />}
     </div>
   );

@@ -22,6 +22,11 @@
     "react-dom": "18.2.0",
     "react-timer-hook": "^3.0.5",
     "tailwindcss": "3.3.1",
-    "typescript": "5.0.4"
+    "typescript": "5.0.4",
+    "uniqid": "^5.4.0",
+    "zustand": "^4.3.7"
+  },
+  "devDependencies": {
+    "@types/uniqid": "^5.3.2"
   }
 }
