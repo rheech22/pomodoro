@@ -3,6 +3,7 @@ import { useStopwatch } from 'react-timer-hook';
 
 import useStore from '@/store';
 
+import { getMany } from '@/utils/object';
 import { pad } from '@/utils/string';
 
 import Timetamp from '@/components/Timetamp';
@@ -10,7 +11,7 @@ import Pause from '@/components/Pause';
 import Done from '@/components/Done';
 
 const Stopwatch = () => {
-  const [init, setInit] = useStore(({ init, setInit }) => [init, setInit]);
+  const { init, setInit } = useStore(getMany('init', 'setInit'));
 
   const { seconds, minutes, hours, start, pause, reset, isRunning } =
     useStopwatch({ autoStart: false });

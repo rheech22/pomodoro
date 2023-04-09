@@ -1,15 +1,15 @@
 'use client';
 
-import { useState } from 'react';
 import { Button, Input } from '@material-tailwind/react';
+import { useState } from 'react';
 import useStore from '@/store';
 
+import { getMany } from '@/utils/object';
+
 const WhatToDo = () => {
-  const [init, setInit, addTask] = useStore(({ addTask, init, setInit }) => [
-    init,
-    setInit,
-    addTask,
-  ]);
+  const { init, setInit, addTask } = useStore(
+    getMany('init', 'setInit', 'addTask')
+  );
 
   const [input, setInput] = useState('');
   const [currentTask, setCurrentTask] = useState('');

@@ -4,6 +4,7 @@ import { useTimer } from 'react-timer-hook';
 import useStore from '@/store';
 
 import { expiryTimestamp } from '@/utils/date';
+import { getMany } from '@/utils/object';
 import { pad } from '@/utils/string';
 
 import MinSelect from '@/components/MinSelect';
@@ -14,7 +15,7 @@ import Done from '@/components/Done';
 const DefaultTimer = () => {
   const initMin = 20;
 
-  const [init, setInit] = useStore(({ init, setInit }) => [init, setInit]);
+  const { init, setInit } = useStore(getMany('init', 'setInit'));
   const [min, setMin] = useState(initMin);
 
   const reset = () => {
