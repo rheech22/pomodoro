@@ -57,7 +57,7 @@ const DefaultTimer = () => {
       <Timetamp timestamp={`${pad(minutes + hours * 60)}:${pad(seconds)}`}/>
       <MinSelect initValue={min} onChange={setMin} />
       <div>
-        {(!init || isRunning) && <Run init={init} isRunning={isRunning} onStart={handleStart} onToggle={handleToggle}/>}
+        {(!init || isRunning) && <Run init={init} onStart={handleStart} onToggle={handleToggle}/>}
         {init && !isRunning && <Done onToggle={handleToggle} onReset={handleDone} />}
       </div>
     </>

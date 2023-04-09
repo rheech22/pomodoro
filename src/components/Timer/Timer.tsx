@@ -13,7 +13,7 @@ const Timer = () => {
   };
 
   return (
-    <div className="w-full flex flex-col justify-center items-center mt-10">
+    <div className="relative w-full flex flex-col items-center mt-10">
       <TimerRadio isTimer={isTimer} onClick={handleClick}/>
       {isTimer ? <DefaultTimer /> : <Stopwatch />}
     </div>

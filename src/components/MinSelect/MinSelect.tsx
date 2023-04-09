@@ -10,7 +10,7 @@ const MinSelect = ({ initValue, onChange }: { initValue: number, onChange: (valu
   };
 
   return (
-    <div className="absolute top-60">
+    <div className="absolute top-56">
       <Select
         label="Select Focus Time"
         size="md"
