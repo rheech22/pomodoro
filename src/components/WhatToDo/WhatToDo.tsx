@@ -10,18 +10,21 @@ const WhatToDo = () => {
     setInit,
     addTask,
   ]);
+
   const [input, setInput] = useState('');
+  const [currentTask, setCurrentTask] = useState('');
 
   const handleSubmit = () => {
     addTask(input);
-    // setInput('');
+    setCurrentTask(input);
     setInit(true);
+    setInput('');
   };
 
   return (
     <div className="relative flex w-full max-w-[24rem]">
       {init ? (
-        <h1>{input}에 집중하는 중...</h1>
+        <h1>{currentTask}에 집중하는 중...</h1>
       ) : (
         <>
           <Input
