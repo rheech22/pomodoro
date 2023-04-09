@@ -8,8 +8,12 @@ interface Props {
 const Done = ({ onToggle, onReset }: Props) => {
   return (
     <div className="flex gap-4">
-      <Button onClick={onToggle} color="amber" ripple={true}>계속</Button>
-      <Button onClick={onReset} variant="outlined" color="red" ripple={true}>중지</Button>
+      <Button onClick={onToggle} color="amber" ripple={true}>
+        계속
+      </Button>
+      <Button onClick={onReset} variant="outlined" color="red" ripple={true}>
+        중지
+      </Button>
     </div>
   );
 };

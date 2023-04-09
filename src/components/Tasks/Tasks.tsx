@@ -8,7 +8,7 @@ const Tasks = () => {
 
   return (
     <ul>
-      {tasks.map(({ id, text })=>{
+      {tasks.map(({ id, text }) => {
         return <li key={id}>{text}</li>;
       })}
     </ul>

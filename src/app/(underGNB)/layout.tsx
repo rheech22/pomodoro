@@ -7,12 +7,14 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         <Link className="mr-auto" href="/">
           <h1>Pomodoro</h1>
         </Link>
-        <Link className="mr-10 underline" href="/pomodoro">focus</Link>
-        <Link className="underline" href="/report">report</Link>
+        <Link className="mr-10 underline" href="/pomodoro">
+          focus
+        </Link>
+        <Link className="underline" href="/report">
+          report
+        </Link>
       </div>
-      <main className="p-10">
-        {children}
-      </main>
+      <main className="p-10">{children}</main>
     </>
   );
 };

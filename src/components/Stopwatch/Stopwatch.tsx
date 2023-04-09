@@ -9,19 +9,11 @@ import Timetamp from '@/components/Timetamp';
 import Pause from '@/components/Pause';
 import Done from '@/components/Done';
 
-
 const Stopwatch = () => {
-  const [ init, setInit ] = useStore(({ init, setInit }) => [ init, setInit ]);
+  const [init, setInit] = useStore(({ init, setInit }) => [init, setInit]);
 
-  const {
-    seconds,
-    minutes,
-    hours,
-    start,
-    pause,
-    reset,
-    isRunning,
-  } = useStopwatch({ autoStart: false });
+  const { seconds, minutes, hours, start, pause, reset, isRunning } =
+    useStopwatch({ autoStart: false });
 
   const handleToggle = () => {
     isRunning ? pause() : start();
@@ -31,17 +23,22 @@ const Stopwatch = () => {
     reset(undefined, false), setInit(false);
   };
 
-  useEffect(()=> {
+  useEffect(() => {
     init && start();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ init ]);
+  }, [init]);
 
   return (
     <>
-      <Timetamp timestamp={`${pad(minutes + hours * 60)}:${pad(seconds)}`} color="green"/>
+      <Timetamp
+        timestamp={`${pad(minutes + hours * 60)}:${pad(seconds)}`}
+        color="green"
+      />
       <div>
-        {init && isRunning && <Pause onToggle={handleToggle}/>}
-        {init && !isRunning && <Done onToggle={handleToggle} onReset={handleDone} />}
+        {init && isRunning && <Pause onToggle={handleToggle} />}
+        {init && !isRunning && (
+          <Done onToggle={handleToggle} onReset={handleDone} />
+        )}
       </div>
     </>
   );

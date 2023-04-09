@@ -7,8 +7,11 @@ interface RunProps {
 }
 
 const Pause = ({ onToggle, color = 'purple' }: RunProps) => {
-  return (<Button onClick={onToggle} color={color} ripple={true}>일시정지</Button>);
+  return (
+    <Button onClick={onToggle} color={color} ripple={true}>
+      일시정지
+    </Button>
+  );
 };
 
 export default Pause;
-

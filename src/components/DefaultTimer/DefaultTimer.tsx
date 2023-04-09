@@ -14,28 +14,20 @@ import Done from '@/components/Done';
 const DefaultTimer = () => {
   const initMin = 20;
 
-  const [ init, setInit ] = useStore(({ init, setInit }) => [ init, setInit ]);
-  const [ min, setMin ] = useState(initMin);
+  const [init, setInit] = useStore(({ init, setInit }) => [init, setInit]);
+  const [min, setMin] = useState(initMin);
 
   const reset = () => {
     restart(expiryTimestamp(min), false);
     setInit(false);
   };
 
-  const {
-    start,
-    pause,
-    resume,
-    restart,
-    hours,
-    minutes,
-    seconds,
-    isRunning,
-  } = useTimer({
-    expiryTimestamp: expiryTimestamp(min),
-    autoStart: false,
-    onExpire: reset,
-  });
+  const { start, pause, resume, restart, hours, minutes, seconds, isRunning } =
+    useTimer({
+      expiryTimestamp: expiryTimestamp(min),
+      autoStart: false,
+      onExpire: reset,
+    });
 
   const handleToggle = () => {
     isRunning ? pause() : resume();
@@ -45,21 +37,23 @@ const DefaultTimer = () => {
     reset();
   };
 
-  useEffect(()=> {
+  useEffect(() => {
     init && start();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ init ]);
+  }, [init]);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(reset, [ min ]);
+  useEffect(reset, [min]);
 
   return (
     <>
-      <Timetamp timestamp={`${pad(minutes + hours * 60)}:${pad(seconds)}`}/>
+      <Timetamp timestamp={`${pad(minutes + hours * 60)}:${pad(seconds)}`} />
       <MinSelect initValue={min} onChange={setMin} />
       <div>
-        {init && isRunning && <Pause onToggle={handleToggle}/>}
-        {init && !isRunning && <Done onToggle={handleToggle} onReset={handleDone} />}
+        {init && isRunning && <Pause onToggle={handleToggle} />}
+        {init && !isRunning && (
+          <Done onToggle={handleToggle} onReset={handleDone} />
+        )}
       </div>
     </>
   );
